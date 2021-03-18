@@ -3,9 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        dir(path: '/home/g15madhumitha_r/')
-        sh 'git clone https://github.com/madhum-15/python-quiz-app'
-        echo 'git clone completed'
+        sh 'python3.7 manage.py runserver 0.0.0.0 8001'
+        echo 'application started'
       }
     }
 
