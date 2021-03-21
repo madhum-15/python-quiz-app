@@ -11,7 +11,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''chmod +x deploy.sh
-./deploy.sh
+BUILD_ID=dontKillMe ./deploy.sh
 '''
       }
     }
