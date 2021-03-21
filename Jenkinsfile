@@ -23,9 +23,9 @@ fi
 
     stage('Validation') {
       steps {
-        sh '''status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://162.222.178.164:8001
-if [[ "$status_code" -ne 200 ]] ; then
-  echo "Site is running fine and changes has been pushed from github"
+        sh '''status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://162.222.178.164:8001)
+if [[ "$status_code" -eq 200 ]] ; then
+  echo "Site is running fine and Deployment Sucessfull"
 else
   exit 0
 fi'''
