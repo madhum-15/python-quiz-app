@@ -18,7 +18,8 @@ JENKINS_NODE_COOKIE=dontKillMe ./deploy.sh
 
     stage('Validation') {
       steps {
-        sh '''status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://162.222.178.164:8001)
+        sh '''sleep 30
+status_code=$(curl --write-out %{http_code} --silent --output /dev/null http://162.222.178.164:8001)
 if [[ "$status_code" -eq 200 ]] ; then
   echo "Site is running fine and Deployment Sucessfull"
 else
