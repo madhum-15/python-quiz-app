@@ -4,7 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         echo 'application started'
-        sh 'python3.7 manage.py runserver 0.0.0.0:8001'
+        sh '''pip3.7 install -r requirements.txt
+python3.7 manage.py runserver 0.0.0.0:8001'''
       }
     }
 
