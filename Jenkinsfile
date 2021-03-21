@@ -10,7 +10,8 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh '''JENKINS_NODE_COOKIE=dontKillMe ./deploy.sh
+        sh '''chmod +x deploy.sh
+JENKINS_NODE_COOKIE=dontKillMe ./deploy.sh
 '''
       }
     }
