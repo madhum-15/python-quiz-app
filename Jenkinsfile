@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Stating the application'
         sh '''pip3.7 install -r requirements.txt
-python3.7 manage.py runserver 0.0.0.0:8001'''
+nohup python3.7 manage.py runserver 0.0.0.0:8001 &'''
       }
     }
 
