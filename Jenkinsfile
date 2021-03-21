@@ -11,7 +11,6 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''netstat -plant | grep 8001
-
 if [ $? != 0 ]; then
 nohup python3.7 manage.py runserver 0.0.0.0:8001 &
 else
