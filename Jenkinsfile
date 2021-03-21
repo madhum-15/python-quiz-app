@@ -11,7 +11,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''chmod +x deploy.sh
-BUILD_ID=dontKillMe ./deploy.sh
+JENKINS_NODE_COOKIE=dontKillMe ./deploy.sh
 '''
       }
     }
