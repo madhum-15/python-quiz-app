@@ -34,6 +34,7 @@ fi'''
           echo 'Performance testing running successful'
         }
 
+        sleep 20
       }
     }
 
