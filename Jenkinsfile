@@ -42,8 +42,7 @@ fi'''
       steps {
         echo 'This unit testing is successful'
         sh 'sudo python3 -m unittest quiz/tests.py'
-        
-      }
+         }
     }
 
   }
