@@ -41,7 +41,7 @@ fi'''
     stage('Unittest') {
       steps {
         echo 'This unit testing is successful'
-        sh 'sudo python3 -m unittest /var/lib/jenkins/workspace/python-quiz-app_Jenkins/quiz/tests.py'
+        sh 'sudo python3 -m unittest quiz/tests.py'
         
       }
     }
