@@ -27,17 +27,23 @@ else
 fi'''
       }
     }
-    stage ('Jmeter') {
-            steps {
-                echo 'This performance testing is successful'
-            }
+
+    stage('Jmeter') {
+      steps {
+        timeout(time: 30) {
+          echo 'Performance testing running successful'
         }
-     stage ('Unittest') {
-            steps {
-                echo 'This unit testing is successful'
-                sh 'make check || true'
-               sh 'pip install unittest-xml-reporting'
-            }
-        }
+
+      }
+    }
+
+    stage('Unittest') {
+      steps {
+        echo 'This unit testing is successful'
+        sh 'make check || true'
+        sh 'pip install unittest-xml-reporting'
+      }
+    }
+
   }
 }
