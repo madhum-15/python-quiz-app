@@ -36,7 +36,7 @@ fi'''
             steps {
                 echo 'This unit testing is successful'
                 sh 'make check || true' 
-                junit '*/target/.xml'
+                junit '**/target/*.xml'
             }
         }
   }
