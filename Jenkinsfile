@@ -44,6 +44,7 @@ fi'''
         sh 'pip install unittest-xml-reporting'
         sh '''from django.test import TestCase
 import unittest
+# unittest will test all the methods whose name starts with \'test\'
 class SampleTest(unittest.TestCase):
    # return True or False
    def test(self):
