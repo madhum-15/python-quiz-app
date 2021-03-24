@@ -41,8 +41,7 @@ fi'''
     stage('Unittest') {
       steps {
         echo 'This unit testing is successful'
-        sh 'make check || true'
-        sh 'pip install unittest-xml-reporting'
+        sh 'sudo python3 -m unittest /var/lib/jenkins/workspace/python-quiz-app_Jenkins/quiz/tests.py'
         
       }
     }
