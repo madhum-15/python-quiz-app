@@ -35,7 +35,8 @@ fi'''
      stage ('Unittest') {
             steps {
                 echo 'This unit testing is successful'
-                sh 'make check || true' 
+                sh 'make check || true'
+               sh 'pip install unittest-xml-reporting'
             }
         }
   }
