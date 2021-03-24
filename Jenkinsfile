@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  environment{
+    dockerImage=''
+    registry='madhu15/img'
+    registryCredential='dockerhub_id'
+  }
   stages {
     stage('Build') {
       steps {
@@ -44,6 +49,23 @@ fi'''
         sh 'pip install unittest-xml-reporting'
       }
     }
-
+      stage('Build docker image'){
+            steps{
+                    script {
+                dockerImage = docker.build registry
+            
+                    }
+                }
+        }
+        stage('Upload to Docker Hub'){
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ){ 
+                    dockerImage.push()
+                    }
+                    
+                }
+            }
+        }
   }
 }
