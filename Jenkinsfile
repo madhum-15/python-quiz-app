@@ -27,6 +27,15 @@ else
 fi'''
       }
     }
-
+    stage ('Jmeter') {
+            steps {
+                echo 'This performance testing is successful'
+            }
+        }
+     stage ('Unittest') {
+            steps {
+                echo 'This unit testing is successful'
+            }
+        }
   }
 }
