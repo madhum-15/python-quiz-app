@@ -1,10 +1,5 @@
 pipeline {
   agent any
-  environment{
-    dockerImage=''
-    registry='madhu15/img'
-    registryCredential='dockerhub_id'
-  }
   stages {
     stage('Build') {
       steps {
@@ -47,25 +42,9 @@ fi'''
         echo 'This unit testing is successful'
         sh 'make check || true'
         sh 'pip install unittest-xml-reporting'
+        sh 'jenkins/test-all.sh'
       }
     }
-      stage('Build docker image'){
-            steps{
-                    script {
-                dockerImage = docker.build registry
-            
-                    }
-                }
-        }
-        stage('Upload to Docker Hub'){
-            steps{
-                script {
-                    docker.withRegistry( '', registryCredential ){ 
-                    dockerImage.push()
-                    }
-                    
-                }
-            }
-        }
+
   }
 }
