@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Stating the application'
+        echo 'Starting the application'
         sh 'pip3.7 install -r requirements.txt'
       }
     }
@@ -41,7 +41,7 @@ fi'''
     stage('Unittest') {
       steps {
         echo 'This unit testing is successful'
-        sh 'sudo python3 -m unittest quiz/tests.py'
+        sh 'python -m unittest quiz/tests.py'
          }
     }
 
