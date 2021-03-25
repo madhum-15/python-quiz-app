@@ -41,7 +41,7 @@ fi'''
     stage('Unittest') {
       steps {
         echo 'This unit testing is successful'
-        sh 'python -m unittest quiz/tests.py'
+        sh 'python3.7 -m unittest quiz/tests.py'
          }
     }
 
