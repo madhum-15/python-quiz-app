@@ -1,16 +1,8 @@
-FROM python:3.7
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        sqlite3 \
-    && rm -rf /var/lib/apt/lists/*
-
-WORKDIR /usr/src/app
-COPY requirements.txt ./
+FROM golang:1.8-alpine
+ADD . usr/src/app/
 RUN pip install -r requirements.txt
 
-COPY manage.py usr/src/app/
-
-EXPOSE 8080
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
-
+FROM python:3.7
+COPY  manage.py usr/src/app/
+ENV PORT 8080
+CMD ["manage.py"]
