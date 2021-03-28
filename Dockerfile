@@ -1,15 +1,13 @@
+# Use Python37
 FROM python:3.7
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        sqlite3 \
-    && rm -rf /var/lib/apt/lists/*
-
-WORKDIR /usr/src/app
-COPY requirements.txt ./
+# Copy requirements.txt to the docker image and install packages
+COPY requirements.txt /
 RUN pip install -r requirements.txt
-
-COPY manage.py usr/src/app/
-
-EXPOSE 8001
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
+# Set the WORKDIR to be the folder
+COPY . /app
+# Expose port 5000
+EXPOSE 5000
+ENV PORT 5000
+WORKDIR /app
+# Use gunicorn as the entrypoint
+CMD exec gunicorn --bind :$PORT app:app
