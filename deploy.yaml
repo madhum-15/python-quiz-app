@@ -1,21 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quizzo
+  name:  quiz-app
   labels:
-    app: quizzo
+    name:  certi
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: quizzo
+      os: ubuntu
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: quizzo
+        os: ubuntu
     spec:
       containers:
-      - name: quizzo
-      image: gcr.io/model-framing-308812/quizzo@sha256:db17e4945ea74bb28f7e2d0c4b195b20538dd76167d6a9ae5577e4bb57e92fd6
-      ports:
-        - containerPort: 8001
+      - image:  gcr.io/model-framing-308812/quizzo:v1
+        imagePullPolicy: Always
+        name:  my-name
+        command: [ "/bin/bash", "-ec"]
+        args: [ date; sleep 10; echo 'Hello from the Kubernetes cluster'; sleep 1; while true; do sleep 20; done;]
+        resources:
+          limits:
+            cpu: "100m"
+            memory: "500Mi"      
+        ports:
+        - containerPort:  80
+          name:  my-name
+      restartPolicy: Always
