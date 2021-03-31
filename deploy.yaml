@@ -17,6 +17,5 @@ spec:
       containers:
       - name: quizzo
       image: gcr.io/model-framing-308812/quizzo@sha256:db17e4945ea74bb28f7e2d0c4b195b20538dd76167d6a9ae5577e4bb57e92fd6
-      imagePullPolicy: Always
       ports:
         - containerPort: 8001
