@@ -20,7 +20,7 @@ spec:
         os: ubuntu
     spec:
       containers:
-      - image:  gcr.io/model-framing-308812/quizzo:v1
+      - image:  gcr.io/model-framing-308812/quizzo@sha256:7ff120fd76b6944a1aaa2dbf22f3965d01dda29fc788a7115dd751ac007ccf4e
         imagePullPolicy: Always
         name:  my-quiz
         command: [ "/bin/bash", "-ec"]
@@ -30,6 +30,6 @@ spec:
             cpu: "100m"
             memory: "500Mi"      
         ports:
-        - containerPort: 81
+        - containerPort: 80
           name:  my-quiz
       restartPolicy: Always
