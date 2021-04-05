@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name:  quiz-app
   labels:
-    name:  certi
+    name:  quizz
 spec:
   replicas: 3
   selector:
@@ -31,5 +31,5 @@ spec:
             memory: "500Mi"      
         ports:
         - containerPort:  80
-          name:  my-name
+          name:  my-names
       restartPolicy: Always
