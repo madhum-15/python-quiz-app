@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  quiz-app
+  name:  quiz-deployment
   labels:
     name:  quizz
 spec:
@@ -22,7 +22,7 @@ spec:
       containers:
       - image:  gcr.io/model-framing-308812/quizzo:v1
         imagePullPolicy: Always
-        name:  my-names
+        name:  my-quiz
         command: [ "/bin/bash", "-ec"]
         args: [ date; sleep 20; echo 'Hello from the Kubernetes cluster'; sleep 1; while true; do sleep 10; done;]
         resources:
@@ -31,5 +31,5 @@ spec:
             memory: "500Mi"      
         ports:
         - containerPort: 80
-          name:  my-names
+          name:  my-quiz
       restartPolicy: Always
