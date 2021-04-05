@@ -24,12 +24,15 @@ spec:
         imagePullPolicy: Always
         name:  my-name
         command: [ "/bin/bash", "-ec"]
-        args: [ date; sleep 10; echo 'Hello from the Kubernetes cluster'; sleep 1; while true; do sleep 20; done;]
+        args: [ date; sleep 20; echo 'Hello from the Kubernetes cluster'; sleep 1; while true; do sleep 10; done;]
         resources:
           limits:
             cpu: "100m"
             memory: "500Mi"      
         ports:
-        - containerPort:  80
+        - containerPort:  
+    port: 80
+    protocol: TCP
+    targetPort: 5000
           name:  my-names
       restartPolicy: Always
