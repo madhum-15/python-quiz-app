@@ -30,8 +30,7 @@ spec:
             cpu: "100m"
             memory: "500Mi"      
         ports:
-        - containerPort:  
-    port: 80
+        - containerPort: 80
     protocol: TCP
     targetPort: 5000
           name:  my-names
