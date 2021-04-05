@@ -30,6 +30,6 @@ spec:
             cpu: "100m"
             memory: "500Mi"      
         ports:
-        - containerPort: 80
+        - containerPort: 5000
           name:  my-quiz
       restartPolicy: Always
