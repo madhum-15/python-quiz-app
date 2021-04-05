@@ -31,7 +31,5 @@ spec:
             memory: "500Mi"      
         ports:
         - containerPort: 80
-    protocol: TCP
-    targetPort: 5000
           name:  my-names
       restartPolicy: Always
